@@ -1,11 +1,8 @@
 require 'sinatra'
+require_relative './complaint_form'
+require_relative './main_layout'
+require_relative './complainant'
 
 get '/' do
-<<-HTML
-<html>
-<body>
-Nothing here yet...
-</body>
-</html>
-HTML
+  ComplaintForm.new(MainLayout.new, Complainant.new(params)).html
 end
