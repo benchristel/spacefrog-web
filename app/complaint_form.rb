@@ -1,7 +1,6 @@
 class ComplaintForm
-  def initialize(layout, complainant)
+  def initialize(layout)
     @layout = layout
-    @complainant = complainant
   end
 
   def html
@@ -74,7 +73,7 @@ class ComplaintForm
       <label>Your name:</label>
 
       <select id="name-prefix">
-        <option value="" selected="selected">Name Prefix</option>
+        <option value="" selected="selected">Prefix</option>
         <option value="Mr.">Mr.</option>
         <option value="Mrs.">Mrs.</option>
         <option value="Ms.">Ms.</option>
@@ -82,8 +81,8 @@ class ComplaintForm
         <option value="Rev.">Rev.</option>
         <option value="Dr.">Dr.</option>
       </select>
-      <input id="first-name" type="text" placeholder="First Name" size="12"></input>
-      <input id="last-name" type="text" placeholder="Last Name" size="18"></input>
+      <input id="first-name" type="text" placeholder="First Name" size="10"></input>
+      <input id="last-name" type="text" placeholder="Last Name" size="16"></input>
     </div>
 
     <div>
@@ -113,6 +112,9 @@ class ComplaintForm
     </div>
 
     <button id="preview-button">Preview Submission</button>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="form.js"></script>
     ^
   end
 end
