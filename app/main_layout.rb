@@ -10,6 +10,7 @@ class MainLayout
         padding: 0;
         font-size: 1em;
         font-family: Verdana, sans-serif;
+        max-width: 350px;
       }
 
       body {
@@ -69,19 +70,10 @@ class MainLayout
 
       #preview {
         display: none;
-        position: fixed;
-        top: 2%
-        bottom: 2%;
-        left: 5%;
-        right: 5%;
-        width: 90%;
-        height: 90%;
         background-color: #f0f0f0;
         border: 1px solid #eee;
         box-shadow: 0 0 10px rgba(0,0,0,0.8);
-        z-index: 9999;
         color: #222;
-        overflow-y: scroll;
       }
 
       #preview-content {
@@ -133,12 +125,6 @@ class MainLayout
         font-size: 16px;
         color: #f82;
         display: none;
-      }
-
-      @media only screen and (max-device-width: 480px) {
-        * {
-          width: inherit;
-        }
       }
     </style>
   </head>

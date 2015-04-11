@@ -126,15 +126,18 @@ $(document).ready(function() {
     savePersonalInfo()
     $('#preview-content').html(message())
     $('#preview').show()
+    $('#form-wrapper').hide()
   })
 
   $('#submit').click(function() {
     sendMail(sfoEmail, message())
     sendMail(submitterEmail(), message())
     $('#preview').hide()
+    $('#form-wrapper').show()
   })
 
   $('.close-button > span').click(function() {
     $("#"+$(this).attr('data-close')).hide()
+    $('#form-wrapper').show()
   })
 })
