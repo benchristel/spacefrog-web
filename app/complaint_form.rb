@@ -5,7 +5,7 @@ class ComplaintForm
 
   def html
     @layout.wrap %^
-    <div id="preview"><p class="close-button close-x"><span data-close="preview"/></p>
+    <div id="preview"><p class="close-button close-x"><span data-close="preview"></span></p>
       <p class="center">This email will be sent to sfo.noise@flysfo.com:</p>
       <div id="preview-content"></div>
       <div class="center"><button id="submit">Submit</button></div>
