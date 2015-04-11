@@ -11,5 +11,10 @@ end
 
 post '/' do
   puts params.inspect
-  #HTTParty.post("http://www.flysfo.com/sites/all/themes/sfo/php/sendmail.php", params)
+  if ENV['LIVE_FIRE'] == 'true'
+    puts "sending emails is ENABLED"
+    HTTParty.post("http://www.flysfo.com/sites/all/themes/sfo/php/sendmail.php", params)
+  else
+    puts "sending emails is DISABLED"
+  end
 end
