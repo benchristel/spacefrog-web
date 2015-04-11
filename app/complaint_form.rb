@@ -18,7 +18,7 @@ class ComplaintForm
       <label>I would like to register a complaint!</label>
 
       <div>
-        <p><span class="label-column">on </span><input id="time" type="datetime-local" data-formatter="time"></input></p>
+        <p><span class="label-column">on </span><input id="time" type="datetime-local" data-formatter="time"></p>
         <p><span class="label-column">a </span><select id="aircraft-type">
           <option value="" selected="selected">Aircraft Type</option>
           <option value="General Aviation">Light Aircraft</option>
@@ -81,33 +81,33 @@ class ComplaintForm
           <option value="Rev.">Rev.</option>
           <option value="Dr.">Dr.</option>
         </select>
-        <input id="first-name" type="text" placeholder="First Name" size="10"></input>
-        <input id="last-name" type="text" placeholder="Last Name" size="16"></input>
+        <input id="first-name" type="text" placeholder="First Name" size="10">
+        <input id="last-name" type="text" placeholder="Last Name" size="16">
       </div>
 
       <div>
         <label>Your address:</label>
 
-        <p><input id="address-1" type="text" placeholder="Address Line 1" size="30"></input></p>
-        <p><input id="address-2" type="text" placeholder="Address Line 2" size="30"></input></p>
+        <p><input id="address-1" type="text" placeholder="Address Line 1" size="30"></p>
+        <p><input id="address-2" type="text" placeholder="Address Line 2" size="30"></p>
         <p>
-          <input id="city" type="text" placeholder="City" size="18"></input>
-          <input id="zip-code" type="text" placeholder="Zip Code" size="9"></input>
+          <input id="city" type="text" placeholder="City" size="18">
+          <input id="zip-code" type="text" placeholder="Zip Code" size="9">
         </p>
       </div>
 
       <div>
         <label>Your contact info:</label>
 
-        <p><input id="email" type="email" placeholder="Email"></input></p>
-        <p><input id="home-phone" type="text" placeholder="Home Phone" data-formatter="phone"></input></p>
-        <p><input id="work-phone" type="text" placeholder="Work Phone" data-formatter="phone"></input></p>
-        <p><input id="cell-phone" type="text" placeholder="Cell Phone" data-formatter="phone" ></input></p>
+        <p><input id="email" type="email" placeholder="Email"></p>
+        <p><input id="home-phone" type="text" placeholder="Home Phone" data-formatter="phone"></p>
+        <p><input id="work-phone" type="text" placeholder="Work Phone" data-formatter="phone"></p>
+        <p><input id="cell-phone" type="text" placeholder="Cell Phone" data-formatter="phone" ></p>
       </div>
 
       <div>
         <label>If you've submitted a complaint before and gotten a caller code, enter it here:</label>
-        <p><input id="caller-code" type="text" placeholder="Caller Code"></input></p>
+        <p><input id="caller-code" type="text" placeholder="Caller Code"></p>
       </div>
 
       <div><button id="preview-button">Preview Submission</button></div>
