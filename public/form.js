@@ -33,14 +33,22 @@ var formatters = {
     return "("+digits.slice(0,3)+") "+digits.slice(3,6)+"-"+digits.slice(6,10)
   },
   "time": function(value) {
-    var date = new Date(value)
-    var mo = zeropad(date.getUTCMonth() + 1)
-    var yyyy = date.getUTCFullYear()
-    var dd = zeropad(date.getUTCDate())
-    var hh = zeropad(date.getUTCHours() % 12)
+    var components = value.split(/\D+/)
+    var mo = zeropad(components[1])
+    var yyyy = components[0]
+    var dd = components[2]
+    var hh = zeropad((0 + components[3]) % 12)
     if (hh == '00') hh = '12'
-    var mm = zeropad(date.getUTCMinutes())
-    var am = date.getUTCHours() < 12 ? 'am' : 'pm'
+    var mm = zeropad(components[4])
+    var am = (0 + components[3]) < 12 ? 'am' : 'pm'
+
+    //var mo = zeropad(date.getUTCMonth() + 1)
+    //var yyyy = date.getUTCFullYear()
+    //var dd = zeropad(date.getUTCDate())
+    //var hh = zeropad(date.getUTCHours() % 12)
+    //if (hh == '00') hh = '12'
+    //var mm = zeropad(date.getUTCMinutes())
+    //var am = date.getUTCHours() < 12 ? 'am' : 'pm'
     return mo + "/" + dd + "/" + yyyy + " " + hh + ":" + mm + " " + am
   }
 }
