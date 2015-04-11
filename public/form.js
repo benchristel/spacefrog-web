@@ -102,10 +102,8 @@ function zeropad(s) {
 
 function currentFormattedTime() {
   var now = new Date()
-  now.setMinutes(now.getMinutes() - now.getTimezoneOffset())
-  return now.toJSON().slice(0, "2013-03-18T13:00".length)
   return [
-    now.getFullYear(), '/', zeropad(now.getMonth()+1), '/', zeropad(now.getDate()), ' ',
+    now.getFullYear(), '-', zeropad(now.getMonth()+1), '-', zeropad(now.getDate()), 'T',
     zeropad(now.getHours()), ':', zeropad(now.getMinutes())
   ].join('')
 }
