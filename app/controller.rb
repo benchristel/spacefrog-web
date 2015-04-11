@@ -10,5 +10,6 @@ get '/' do
 end
 
 post '/' do
-  HTTParty.post("http://www.flysfo.com/sites/all/themes/sfo/php/sendmail.php", params)
+  puts params.inspect
+  #HTTParty.post("http://www.flysfo.com/sites/all/themes/sfo/php/sendmail.php", params)
 end

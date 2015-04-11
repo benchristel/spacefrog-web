@@ -8,30 +8,23 @@ class MainLayout
       * {
         margin: 0;
         padding: 0;
-        font-size: 14px;
+        font-size: 1em;
         font-family: Verdana, sans-serif;
       }
 
-      html {
-        width: 350px;
-
-      }
-
       body {
-        padding: 12px;
+        padding: 1em;
         background-color: #111;
         color: #ccc;
-        width: 350px;
       }
 
       input, textarea {
-
-        box-shadow: inset 1px 1px 5px rgba(0,0,0,0.5);
+        box-shadow: inset 0.1em 0.1em 0.4em rgba(0,0,0,0.5);
       }
 
       input, select, textarea {
-        padding: 3px;
-        border-radius: 5px;
+        padding: 0.2em;
+        border-radius: 0.4em;
         border: 1px solid #80f;
         color: #000;
       }
@@ -41,13 +34,12 @@ class MainLayout
       }
 
       p {
-        margin-top: 3px;
-        padding:
+        margin-top: 0.2em;
       }
 
       label, h1 {
         min-width: 100px;
-        font-size: 14px;
+        font-size: 1em;
         font-family: Verdana, sans-serif;
         margin-bottom: 8px;
         margin-top: 16px;
@@ -144,8 +136,8 @@ class MainLayout
       }
 
       @media only screen and (max-device-width: 480px) {
-        html {
-          width: 350px;
+        * {
+          width: inherit;
         }
       }
     </style>
