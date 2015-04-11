@@ -13,13 +13,13 @@ class MainLayout
       * {
         margin: 0;
         padding: 0;
-        font-size: 1em;
+        font-size: 13px;
         font-family: Verdana, sans-serif;
-        max-width: 350px;
+        box-sizing: border-box;
+        /*max-width: 320px;*/
       }
 
       body {
-        padding: 1em;
         background-color: #111;
         color: #ccc;
       }
@@ -29,23 +29,27 @@ class MainLayout
       }
 
       input, select, textarea {
-        padding: 0.2em;
+        padding: 0.4em;
         border-radius: 0.4em;
         border: 1px solid #80f;
         color: #000;
       }
 
-      select {
-        display: 'block';
+      input, select {
+        height: 2em;
+      }
+
+      .grid input, .grid select, .grid textarea {
+        width: 220px;
       }
 
       p {
-        margin-top: 0.2em;
+        margin-top: 0.5em;
       }
 
       label, h1 {
         min-width: 100px;
-        font-size: 1em;
+        font-size: 1.1em;
         font-family: Verdana, sans-serif;
         margin-bottom: 8px;
         margin-top: 16px;
@@ -53,16 +57,20 @@ class MainLayout
         color: #0a0;
       }
 
-      div {
-        margin-top: 10px;
-        margin-bottom: 10px;
+      #form-wrapper > div {
+        padding: 10px;
+        border-bottom: 1px solid #305;
+      }
+
+      #form-wrapper > div:nth-child(odd) {
+        background-color: #103;
       }
 
       span.label-column {
-        width: 100px;
+        width: 60px;
         font-size: 12px;
         display: inline-block;
-        vertical-align: top;
+        vertical-align: middle;
         text-align: right;
         margin-right: 10px;
         color: #f82;
@@ -73,11 +81,34 @@ class MainLayout
         vertical-align: top;
       }
 
+      #name-prefix {
+        width: 25%;
+      }
+
+      #first-name {
+        width: 30%;
+      }
+
+      #last-name {
+        width: 40%;
+      }
+
+      #address-1, #address-2 {
+        width: 95%;
+      }
+
+      #city {
+        width: 75%;
+      }
+
+      #zip-code {
+        width: 20%;
+      }
+
       #preview {
         display: none;
         background-color: #f0f0f0;
         border: 1px solid #eee;
-        box-shadow: 0 0 10px rgba(0,0,0,0.8);
         color: #222;
       }
 
@@ -100,7 +131,9 @@ class MainLayout
 
       p.close-x span:after {
         content: "x";
-        color: #aaa;
+        color: #ddd;
+        background-color:#d44;
+        padding: 0.2em;
         margin-right: 10px;
         cursor: pointer;
         font-size: 24px;

@@ -15,9 +15,9 @@ class ComplaintForm
     </div>
 
     <div id="form-wrapper">
-      <label>I would like to register a complaint!</label>
+      <div class="grid">
+        <label>I would like to register a complaint!</label>
 
-      <div>
         <p><span class="label-column">on </span><input id="time" type="datetime-local" data-formatter="time"></p>
         <p><span class="label-column">a </span><select id="aircraft-type">
           <option value="" selected="selected">Aircraft Type</option>
@@ -60,7 +60,7 @@ class ComplaintForm
           <option value="Work at home">Work At Home</option>
           <option value="Other">Other</option>
         </select></p>
-        <p><span class="label-column">comments </span><textarea id="comments" rows="3" cols="20"></textarea></p>
+        <p><span class="label-column">notes </span><textarea id="comments" rows="3" cols="20"></textarea></p>
         <p><span class="label-column">respond?</span><select id="response-method">
           <option value="No Response Needed" selected="selected">No Response Needed</option>
           <option value="Yes - via Email">Respond Via Email</option>
