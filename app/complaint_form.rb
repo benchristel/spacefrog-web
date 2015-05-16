@@ -113,7 +113,7 @@ class ComplaintForm
       <div><button id="preview-button">Preview Submission</button></div>
     </div>
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="form.js"></script>
     ^
   end
