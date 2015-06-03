@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'sinatra'
-gem 'typhoeus'
-gem 'rspec'
-gem 'mongoid'
+gem 'sinatra'  # receives incoming http requests
+gem 'typhoeus' # makes outgoing http requests
+gem 'rspec'    # tests all the things
+gem 'mongoid'  # persists data
+gem 'timezone' # converts times between timezones

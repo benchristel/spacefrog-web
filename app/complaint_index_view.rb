@@ -1,15 +1,28 @@
 class ComplaintIndexView
-  def initialize(complaints, layout)
+  def initialize(complaints, report, layout)
     @complaints = complaints
+    @report = report
     @layout = layout
   end
 
   def html
-    if @complaints.size == 0
-      @layout.wrap "<p>there are no complaints to show.</p>"
-    else
-      @layout.wrap "<table>#{@complaints.map { |complaint| table_row complaint }.join()}</table>"
+    content = ""
+
+    content += "<h1>Summary</h1>"
+    content += "<table><tr><td>Month</td><td>Complaints</td><td>Complainants</td></tr>"
+    @report.by_month.each do |month, data|
+      content += "<tr><td>#{month}</td><td>#{data[:complaints]}</td><td>#{data[:complainants]}</td></tr>"
     end
+    content += "</table>"
+
+    content += "<h1>Complaint History</h1>"
+    if @complaints.size == 0
+      content += "<p>there are no complaints to show.</p>"
+    else
+      content += "<table>#{@complaints.map { |complaint| table_row complaint }.join()}</table>"
+    end
+
+    @layout.wrap content
   end
 
   private

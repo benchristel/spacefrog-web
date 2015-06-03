@@ -5,6 +5,8 @@ require_relative './complaint_form'
 require_relative './complaint_index_view'
 require_relative './main_layout'
 require_relative './complaint'
+require_relative './report'
+require_relative './session'
 
 puts "running in DEV" if development?
 puts "running in PROD" if production?
@@ -16,12 +18,30 @@ configure do
 end
 
 get '/complaints' do
-  return unless authenticated?(params)
-  ComplaintIndexView.new(Complaint.all, MainLayout.new).html
+  return unless authenticated?(headers)
+  ComplaintIndexView.new(Complaint.all, Report.new(Complaint.all), MainLayout.new).html
 end
 
 get '/' do
   ComplaintForm.new(MainLayout.new).html
+end
+
+get '/sign_in' do
+  MainLayout.new.wrap(
+    '<form action="/sign_in" method="POST"><input type="password" name="password"><input type="submit" value="Sign In"></form>'
+  )
+end
+
+post '/sign_in' do
+  hour = 3600 #seconds
+  if params['password'] == ENV['PASSWORD'] && ENV['PASSWORD'].to_s != ''
+    Session.delete_all
+    session = Session.create(token: SecureRandom.hex(128))
+    headers['Set-Cookie'] = 'session_token=' + session.token
+    redirect '/complaints'
+  else
+    redirect '/sign_in'
+  end
 end
 
 post '/' do
@@ -39,6 +59,14 @@ post '/' do
   end
 end
 
-def authenticated?(params)
-  params['p'] == ENV['PASSWORD'] && ENV['PASSWORD'] != '' && ENV['PASSWORD'] != nil
+def authenticated?(headers)
+  cookie = env['HTTP_COOKIE'].to_s.split('=')[1]
+  puts env.inspect
+  puts env['HTTP_COOKIE'].inspect
+  puts env['HTTP_COOKIE'].to_s.inspect
+  puts env['HTTP_COOKIE'].to_s.split('=').inspect
+  puts cookie.inspect
+  puts Session.all.to_a.inspect
+  return false if cookie.nil?
+  Session.find_by(token: cookie) != nil
 end

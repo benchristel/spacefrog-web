@@ -164,6 +164,12 @@ class MainLayout
         color: #f82;
         display: none;
       }
+
+      td {
+        padding-left: 10px;
+        padding-right: 10px;
+        border: 1px solid #333;
+      }
     </style>
   </head>
   <body>
