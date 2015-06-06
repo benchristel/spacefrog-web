@@ -52,10 +52,10 @@ post '/' do
   end
 
   if ENV['LIVE_FIRE'] == 'true'
-    puts "sending emails is ENABLED"
+    puts "sending emails is ENABLED " + params.inspect
     Typhoeus.post("http://www.flysfo.com/sites/all/themes/sfo/php/sendmail.php", body: params)
   else
-    puts "sending emails is DISABLED"
+    puts "sending emails is DISABLED " + params.inspect
   end
 end
 
