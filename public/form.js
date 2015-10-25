@@ -12,7 +12,11 @@ var personalInfoFields = [
   'home-phone',
   'work-phone',
   'cell-phone',
-  'caller-code'
+  'caller-code',
+  'aircraft-type',
+  'disturbance-type',
+  'activity-disturbed',
+  'response-method'
 ]
 
 function refillPersonalInfo() {
