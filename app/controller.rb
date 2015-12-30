@@ -18,7 +18,9 @@ configure do
 end
 
 get '/complaints' do
+  puts "GET /complaints"
   return unless authenticated?(headers)
+  puts "authenticated as admin"
   ComplaintIndexView.new(Complaint.all, Report.new(Complaint.all), MainLayout.new).html
 end
 
