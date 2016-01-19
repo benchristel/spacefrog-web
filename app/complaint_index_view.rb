@@ -19,7 +19,7 @@ class ComplaintIndexView
     if @complaints.size == 0
       content += "<p>there are no complaints to show.</p>"
     else
-      content += "<table>#{@complaints.map { |complaint| table_row complaint }.join()}</table>"
+      content += "<table>#{@complaints[-1000 .. -1].map { |complaint| table_row complaint }.join()}</table>"
     end
 
     @layout.wrap content

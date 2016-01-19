@@ -64,6 +64,3 @@ DEPENDENCIES
   sinatra
   timezone
   typhoeus
-
-BUNDLED WITH
-   1.11.2

@@ -18,10 +18,9 @@ configure do
 end
 
 get '/complaints' do
-  puts "GET /complaints"
   return unless authenticated?(headers)
-  puts "authenticated as admin"
-  ComplaintIndexView.new(Complaint.all, Report.new(Complaint.all), MainLayout.new).html
+  complaints = Complaint.where(:created_at.gt => 2.months.ago.beginning_of_month, :complainant_email.nin => email_blacklist)
+  ComplaintIndexView.new(complaints, Report.new(complaints), MainLayout.new).html
 end
 
 get '/' do
@@ -54,10 +53,10 @@ post '/' do
   end
 
   if ENV['LIVE_FIRE'] == 'true'
-    puts "sending emails is ENABLED " + params.inspect
+    puts "sending emails is ENABLED"
     Typhoeus.post("http://www.flysfo.com/sites/all/themes/sfo/php/sendmail.php", body: params)
   else
-    puts "sending emails is DISABLED " + params.inspect
+    puts "sending emails is DISABLED"
   end
 end
 
@@ -71,4 +70,8 @@ def authenticated?(headers)
   puts Session.all.to_a.inspect
   return false if cookie.nil?
   Session.find_by(token: cookie) != nil
+end
+
+def email_blacklist
+  ENV['BLACKLIST'].to_s.split(',')
 end
